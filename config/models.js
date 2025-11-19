@@ -53,7 +53,9 @@ module.exports.models = {
   *                                                                          *
   ***************************************************************************/
 
-  // migrate: 'alter',
+  //migrate: 'safe',
+   migrate: 'drop',   // SOLO en desarrollo
+  cascadeOnDestroy: true,
 
 
   /***************************************************************************

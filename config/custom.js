@@ -19,4 +19,7 @@ module.exports.custom = {
   // stripeSecret: 'sk_test_Zzd814nldl91104qor5911gjald',
   // …
 
+  jwtSecret: process.env.JWT_SECRET || 'supersecretolocoseguro',
+  jwtExpiresIn: '7d', // tiempo de expiración del token
+
 };

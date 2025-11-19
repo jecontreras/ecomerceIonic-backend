@@ -77,6 +77,29 @@ module.exports.sockets = {
   ***************************************************************************/
 
   // grant3rdPartyCookie: true,
+    onConnect: function(session, socket) {
+    sails.log.info('Socket conectado:', socket.id);
 
+    socket.on('join', (roomName) => {
+      socket.join(roomName);
+      sails.log.info(`Socket ${socket.id} se unió a ${roomName}`);
+    });
+  },
+  /*
+onConnect: function(session, socket) {
+  const userId = session.userId;
+
+  if (!userId) return;
+
+  // unir al usuario a todas sus rooms existentes
+  ChatRoom.find({
+    or: [{ userA: userId }, { userB: userId }]
+  }).then(rooms => {
+    rooms.forEach(r => {
+      sails.sockets.join(socket, `room-${r.id}`);
+    });
+  });
+},
+*/
 
 };
